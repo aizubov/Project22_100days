@@ -98,8 +98,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if let beacon = beacons.first {
             
-            if currentBeaconUuid == nil { currentBeaconUuid = region.proximityUUID }
-            guard currentBeaconUuid == region.proximityUUID else { return }
+            if currentBeaconUuid == nil { currentBeaconUuid = region.uuid }
+            guard currentBeaconUuid == region.uuid else { return }
             
             update(distance: beacon.proximity, name: region.identifier)
             showFirstDetection()
@@ -109,11 +109,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 }
 
-/*
- let beaconRegion = CLBeaconRegion(uuid: uuid, major: 123, minor: 456, identifier: "MyBeacon")
- let beaconConstraint = CLBeaconIdentityConstraint(uuid: uuid)
- 
- locationManager?.startMonitoring(for: beaconRegion)
- locationManager?.startRangingBeacons(satisfying: beaconConstraint)
- //locationManager?.startRangingBeacons(in: beaconRegion)
- */
+
