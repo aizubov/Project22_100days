@@ -17,31 +17,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-qp-p2a">
-                                <rect key="frame" x="101.00000000000001" y="414.66666666666669" width="191.33333333333337" height="48"/>
+                                <rect key="frame" x="101.00000000000001" y="414.33333333333331" width="191.33333333333337" height="48.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hH-Wb-gFv">
+                                <rect key="frame" x="168" y="481" width="57" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="lLk-VE-qz7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zls-sh-fVF">
+                                <rect key="frame" x="146" y="286" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3hH-Wb-gFv" firstAttribute="top" secondItem="ehc-qp-p2a" secondAttribute="bottom" constant="18.333333333333314" id="0mu-xk-P94"/>
+                            <constraint firstItem="3hH-Wb-gFv" firstAttribute="centerX" secondItem="ehc-qp-p2a" secondAttribute="centerX" id="BGG-Pu-gPB"/>
                             <constraint firstItem="ehc-qp-p2a" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="K96-53-Z1E"/>
                             <constraint firstItem="ehc-qp-p2a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KPX-mM-QG6"/>
+                            <constraint firstItem="Zls-sh-fVF" firstAttribute="centerX" secondItem="ehc-qp-p2a" secondAttribute="centerX" id="Nyf-hw-s9s"/>
+                            <constraint firstItem="Zls-sh-fVF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="227" id="PqQ-EB-Yxy"/>
+                            <constraint firstItem="ehc-qp-p2a" firstAttribute="top" secondItem="Zls-sh-fVF" secondAttribute="bottom" constant="28.666666666666686" id="hyU-EK-qOm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3hH-Wb-gFv" secondAttribute="bottom" constant="308" id="je8-zU-L6k"/>
+                            <constraint firstItem="Zls-sh-fVF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="rJZ-1e-5yy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="distanceReading" destination="ehc-qp-p2a" id="75r-ZS-Sh3"/>
+                        <outlet property="myLabel" destination="3hH-Wb-gFv" id="a8j-vQ-zVF"/>
+                        <outlet property="myView" destination="Zls-sh-fVF" id="Yhi-c6-hlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="5"/>
+            <point key="canvasLocation" x="20.610687022900763" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
