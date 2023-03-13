@@ -44,14 +44,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func startScanning() {
-        let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5")!
-        
-        let beaconRegion = CLBeaconRegion(uuid: uuid, major: 123, minor: 456, identifier: "MyBeacon")
+        beaconAdd(uuid: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0", identifier: "Apple AirLocate E2C56DB5")
+        beaconAdd(uuid: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5", identifier: "Apple AirLocate 5A4BCFCE")
+        beaconAdd(uuid:"74278BDA-B644-4520-8F0C-720EAF059935", identifier: "Apple AirLocate 74278BDA")
+    }
+    
+    func beaconAdd(uuid: String, identifier: String) {
+        let uuid = UUID(uuidString: uuid)!
+        let beaconRegion = CLBeaconRegion(uuid: uuid, major: 123, minor: 456, identifier: identifier)
         let beaconConstraint = CLBeaconIdentityConstraint(uuid: uuid)
         
         locationManager?.startMonitoring(for: beaconRegion)
         locationManager?.startRangingBeacons(satisfying: beaconConstraint)
-        //locationManager?.startRangingBeacons(in: beaconRegion)
     }
     
     func update(distance: CLProximity, name: String) {
@@ -86,7 +90,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func showFirstDetection() {
+    func firstTimeBeaconDetected() {
         if firstDetected {
             firstDetected = false
             let ac = UIAlertController(title: "Beacon detected", message: nil, preferredStyle: .alert)
@@ -102,7 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             guard currentBeaconUuid == region.uuid else { return }
             
             update(distance: beacon.proximity, name: region.identifier)
-            showFirstDetection()
+            firstTimeBeaconDetected()
         } else {
             update(distance: .unknown, name: "No beacon")
         }
